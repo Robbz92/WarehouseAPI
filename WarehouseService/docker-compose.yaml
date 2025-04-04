@@ -5,8 +5,8 @@ services:
     image: mariadb:latest
     container_name: mariadb
     environment:
-      - MYSQL_ROOT_PASSWORD=robban92
-      - MYSQL_DATABASE=InvoiceManager
+      - MYSQL_ROOT_PASSWORD=your_paassword
+      - MYSQL_DATABASE=Warehouse
       - MYSQL_USER=root
       - MYSQL_PASSWORD=robban92
     ports:
