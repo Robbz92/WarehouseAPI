@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.warehouseservice.db.ProductRepository;
 import org.example.warehouseservice.db.models.Product;
+import org.example.warehouseservice.exceptions.ItemNotFoundException;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
@@ -14,6 +15,7 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     public Mono<Product> getProduct(int id) {
-        return productRepository.findById(id);
+        return productRepository.findById(id)
+                .switchIfEmpty(Mono.error(new ItemNotFoundException("Product with id " + id + " not found")));
     }
 }
