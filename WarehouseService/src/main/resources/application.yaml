@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: WarehouseService
+  r2dbc:
+    url: r2dbc:mariadb://localhost:3306/Warehouse
+    username: root
+    password: xxxx
