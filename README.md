@@ -11,17 +11,16 @@ Before running the service, ensure you have the following installed on your mach
 
 ## Setup Instruction
 1. **Clone the repository**:
-   '''bash
-   git clone https://github.com/Robbz92/WarehouseAPI.git
-   cd WarehouseAPI
+   - git clone https://github.com/Robbz92/WarehouseAPI.git
+   - cd WarehouseAPI
 
 2. **Configuration**:
    *Docker*:
     - MYSQL_ROOT_PASSWORD=your_password
     - MYSQL_PASSWORD=your_password
         
-  *application.yaml*:
-    - password your_password
+   **application.yaml**:
+   - password your_password
 
 3. **Generate Docker-image**:
     - mvn clean package
