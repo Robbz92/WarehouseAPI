@@ -33,9 +33,9 @@ Before running the service, ensure you have the following installed on your mach
 * url: localhost:8080/webjars/swagger-ui/index.html
 
 ## API Flow Diagram
-![API Flow](docs/images/api_flow.png)
+![API Flow](WarehouseServicedocs/images/api_flow.png)
 
 ## Database Relationship Diagram
-![Database ERD](docs/images/db_relationship.png)
+![Database ERD](WarehouseService/docs/images/db_relationship.png)
 
 
