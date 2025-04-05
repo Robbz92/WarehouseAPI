@@ -1,0 +1,10 @@
+@startuml api_flow
+actor User
+entity Warehouse
+database MariaDB
+
+User -> Warehouse : Makes request
+Warehouse -> MariaDB : Queries database
+MariaDB -> Warehouse : Returns data
+Warehouse -> User : Sends response
+@enduml

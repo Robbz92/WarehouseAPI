@@ -1,0 +1,23 @@
+@startuml
+entity "article" as article {
+    + id : int <<PK>>
+    + name : varchar(100)
+    + available_stock : int
+}
+
+entity "product" as product {
+    + id : int <<PK>>
+    + name : varchar(100)
+    + price : decimal(10, 0)
+}
+
+entity "product_article" as product_article {
+    + product_id : int
+    + article_id : int
+    + quantity : int
+}
+
+article -- product_article : "product_id"
+product -- product_article : "article_id"
+
+@enduml

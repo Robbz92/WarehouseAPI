@@ -1,38 +1,27 @@
-version: '3.7'
-
 services:
+  warehouse-service:
+    build: .
+    container_name: warehouse-service
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: r2dbc:mariadb://mariadb:3306/Warehouse
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: robban92
+    depends_on:
+      - mariadb
+
   mariadb:
     image: mariadb:latest
     container_name: mariadb
     environment:
-      - MYSQL_ROOT_PASSWORD=your_paassword
-      - MYSQL_DATABASE=Warehouse
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=robban92
+      MYSQL_ROOT_PASSWORD: robban92
+      MYSQL_DATABASE: Warehouse
     ports:
-      - "3306:3306"
-    networks:
-      - mynetwork
+      - "3307:3306"
     volumes:
       - mariadb-data:/var/lib/mysql
-
-  myapp:
-    build: .
-    container_name: myapp
-    environment:
-      - SPRING_R2DBC_URL=r2dbc:mariadb://mariadb:3306/Warehouse
-      - SPRING_R2DBC_USERNAME=root
-      - SPRING_R2DBC_PASSWORD=your_paassword
-    ports:
-      - "8080:8080"
-    depends_on:
-      - mariadb
-    networks:
-      - mynetwork
-
-networks:
-  mynetwork:
-    driver: bridge
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
 volumes:
   mariadb-data:
