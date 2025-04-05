@@ -32,9 +32,9 @@ Before running the service, ensure you have the following installed on your mach
 ## Swagger-page
 * url: localhost:8080/webjars/swagger-ui/index.html
 
-## 1. API Flow UML Diagram
-![API Flow](docs/api_flow.png)
+## API Flow Diagram
+![API Flow](docs/images/api_flow.png)
 
-## 2. Database Relationship Diagram
-![Database Relationship](docs/db_relationship.png)
+## Database Relationship Diagram
+![Database ERD](docs/images/database_erd.png)
 
