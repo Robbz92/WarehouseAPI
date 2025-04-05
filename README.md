@@ -24,10 +24,10 @@ Before running the service, ensure you have the following installed on your mach
 
 3. **Generate Docker-image**:
     - docker-compose up
-
-4. **Start Service**:
-    - start docker instance (DockerDeskop/temrinal)
-    - maven bootRun
+    - start up container
+      
+      *no need to run from intelij because everything is wrapped in docker.
+      i have also included a init.sql to pre-load the database tables.*
   
 ## Swagger-page
 * url: localhost:8080/webjars/swagger-ui/index.html
