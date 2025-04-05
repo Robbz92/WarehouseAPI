@@ -4,4 +4,4 @@ spring:
   r2dbc:
     url: r2dbc:mariadb://mariadb:3306/Warehouse
     username: root
-    password: robban92
+    password: your_password
