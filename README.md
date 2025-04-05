@@ -36,5 +36,6 @@ Before running the service, ensure you have the following installed on your mach
 ![API Flow](docs/images/api_flow.png)
 
 ## Database Relationship Diagram
-![Database ERD](docs/images/database_erd.png)
+![Database ERD](docs/images/db_relationship.png)
+
 
