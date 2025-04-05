@@ -11,6 +11,8 @@ application.yaml
 # Ignore docker-compose.yaml
 docker-compose.yaml
 
+.DS_Store
+
 ### STS ###
 .apt_generated
 .classpath
