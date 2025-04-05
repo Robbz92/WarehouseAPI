@@ -23,10 +23,7 @@ Before running the service, ensure you have the following installed on your mach
    - password your_password
 
 3. **Generate Docker-image**:
-    - mvn clean package
-    - docker build -t warehouse .
-    - docker run -p 8080:8080 warehouse
-    - docker-compose up --build
+    - docker-compose up
 
 4. **Start Service**:
     - start docker instance (DockerDeskop/temrinal)
@@ -34,4 +31,10 @@ Before running the service, ensure you have the following installed on your mach
   
 ## Swagger-page
 * url: localhost:8080/webjars/swagger-ui/index.html
+
+## 1. API Flow UML Diagram
+![API Flow](docs/api_flow.png)
+
+## 2. Database Relationship Diagram
+![Database Relationship](docs/db_relationship.png)
 
