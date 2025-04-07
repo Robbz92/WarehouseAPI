@@ -1,11 +1,11 @@
 package org.example.warehouseservice.db.models;
 
 import lombok.Builder;
-import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 @Builder
+@Table("product_article")
 public record ProductArticle(
-        @Id
         int productId,
         int articleId,
         int quantity) {
