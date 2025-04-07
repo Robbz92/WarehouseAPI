@@ -6,20 +6,17 @@ import lombok.Builder;
 public record ProductAvailabilityDto(
         String productName,
         int productId,
-        int articleId,
-        int availableQuantity) {
+        int availableProductCount) {  // This will hold the number of complete products
 
     public static ProductAvailabilityDto of(
-            int articleId,
-            int productId,
             String productName,
-            int availableQuantity) {
+            int productId,
+            int availableProductCount) {
 
         return ProductAvailabilityDto.builder()
                 .productId(productId)
                 .productName(productName)
-                .articleId(articleId)
-                .availableQuantity(availableQuantity)
+                .availableProductCount(availableProductCount)
                 .build();
     }
 }

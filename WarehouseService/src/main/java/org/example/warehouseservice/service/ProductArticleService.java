@@ -22,12 +22,6 @@ public class ProductArticleService {
     private final ProductArticleRepository productArticleRepository;
     private final ArticleRepository articleRepository;
 
-    public Flux<ProductAvailabilityDto> getProductAvailabilityDto(Product product) {
-        return productArticleRepository.findByProductId(product.id())
-                .flatMap(productArticle -> articleRepository.findByArticleId(productArticle.articleId())
-                        .map(article -> ProductAvailabilityDto.of(article.articleId(), product.id(), product.name(), productArticle.quantity())))
-                .filter(dto -> dto.availableQuantity() > 0);
-    }
 
     public Mono<Void> saveProductArticlesForProduct(Product savedProduct, ProductWrapper productWrapper) {
         return Flux.fromIterable(createProductArticles(savedProduct, productWrapper))
