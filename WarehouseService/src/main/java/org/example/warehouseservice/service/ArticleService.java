@@ -24,8 +24,7 @@ public class ArticleService {
         return DataBufferUtils.join(filePart.content())
                 .flatMap(dataBuffer -> converter.toClassEntity(dataBuffer, InventoryWrapper.class))
                 .flatMapMany(wrapper -> Flux.fromIterable(Article.from(wrapper)))
-                .flatMap(article ->
-                        articleRepository.findByName(article.name())
+                .flatMap(article -> articleRepository.findByName(article.name())
                                 .flatMap(existingArticle -> {
                                     existingArticle.cloneWith(existingArticle.availableStock() + article.availableStock());
                                     return articleRepository.save(existingArticle);

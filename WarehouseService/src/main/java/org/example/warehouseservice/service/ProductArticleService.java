@@ -2,8 +2,6 @@ package org.example.warehouseservice.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.example.warehouseservice.controller.dto.ProductAvailabilityDto;
-import org.example.warehouseservice.db.ArticleRepository;
 import org.example.warehouseservice.db.ProductArticleRepository;
 import org.example.warehouseservice.db.models.Product;
 import org.example.warehouseservice.db.models.ProductArticle;
@@ -20,15 +18,9 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ProductArticleService {
     private final ProductArticleRepository productArticleRepository;
-    private final ArticleRepository articleRepository;
-
 
     public Mono<Void> saveProductArticlesForProduct(Product savedProduct, ProductWrapper productWrapper) {
         return Flux.fromIterable(createProductArticles(savedProduct, productWrapper))
-                .doOnNext(productArticle -> {
-
-                    System.out.println("Saving product article: " + productArticle);
-                })
                 .flatMap(productArticleRepository::save)
                 .then()
                 .onErrorMap(e -> new RuntimeException("Error saving product articles", e));
