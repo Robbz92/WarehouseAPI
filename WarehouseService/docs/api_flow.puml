@@ -1,10 +1,18 @@
 @startuml api_flow
 actor User
-entity Warehouse
-database MariaDB
+entity [Warehouse Service] as Warehouse
+database [MariaDB]
 
-User -> Warehouse : Makes request
-Warehouse -> MariaDB : Queries database
-MariaDB -> Warehouse : Returns data
-Warehouse -> User : Sends response
+User -> Warehouse : HTTP GET /products/available
+note right of User : Request to check available products
+
+Warehouse -> MariaDB : SQL Query\n(Join product, article, inventory)
+note right of Warehouse : Uses repositories\n& calculates availability
+
+MariaDB --> Warehouse : List<ProductAvailabilityDto>
+note left of MariaDB : Based on inventory and product composition
+
+Warehouse --> User : JSON Response\n[List<ProductAvailabilityDto>]
+note right of Warehouse : Returns products with\navailable quantities
+
 @enduml
